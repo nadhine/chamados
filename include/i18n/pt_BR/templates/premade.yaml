@@ -1,8 +1,8 @@
 ---
 - 
   isenabled: 1
-  title: O que é o Sistema de Chamados TI Paulista (exemplo)?
-  response: Sistema de Chamados TI Paulista é baseado no sistema OsTicket, um sistema de chamados de código aberto amplamente utilizado, uma alternativa atraente aos caros e complexos sistemas de suporte. Simples, leve, confiável, aberto, baseado na web, fácil de configurar e usar.
+  title: O que é o osTicket (exemplo)?
+  response: osTicket é um sistema de chamados de código aberto amplamente utilizado, uma alternativa atraente aos caros e complexos sistemas de suporte. Simples, leve, confiável, aberto, baseado na web, fácil de configurar e usar.
   notes: ""
   attachments:
     - 

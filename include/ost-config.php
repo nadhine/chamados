@@ -30,17 +30,17 @@ if(OSTINSTALLED!=TRUE){
 }
 
 # Encrypt/Decrypt secret key - randomly generated during installation.
-define('SECRET_SALT','ebyEoxlbH65Hcw7NuESCjFozyGcbHaKe');
+define('SECRET_SALT','N5Tk5EzzP4ojuQZU_pkE1cef6f3njD0f');
 
 #Default admin email. Used only on db connection issues and related alerts.
-define('ADMIN_EMAIL','hangrel@gmail.com');
+define('ADMIN_EMAIL','nadhine.franca@gmail.com');
 
 # Database Options
 # ---------------------------------------------------
 # Mysql Login info
 define('DBTYPE','mysql');
 define('DBHOST','localhost');
-define('DBNAME','sistemachamados');
+define('DBNAME','chamados');
 define('DBUSER','root');
 define('DBPASS','admin2016');
 
