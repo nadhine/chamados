@@ -57,7 +57,6 @@ table.custom-data th {
 table.custom-data th,
 table.meta-data th {
     text-align: right;
-    background-color: #ddd;
     padding: 3px 8px;
 }
 table.meta-data td {
@@ -108,73 +107,29 @@ div.hr {
     <div class="hr">&nbsp;</div>
     <table><tr>
         <td class="flush-left"><?php echo (string) $ost->company; ?></td>
-        <td class="flush-right"><?php echo Format::daydatetime(Misc::gmtime()); ?></td>
     </tr></table>
 </htmlpageheader>
 
 <htmlpagefooter name="def" style="display:none">
     <div class="hr">&nbsp;</div>
     <table width="100%"><tr><td class="flush-left">
-        Ticket #<?php echo $ticket->getNumber(); ?> printed by
-        <?php echo $thisstaff->getUserName(); ?> on
+        Chamado #<?php echo $ticket->getNumber(); ?> impresso por
+        <?php echo $thisstaff->getUserName(); ?> em
         <?php echo Format::daydatetime(Misc::gmtime()); ?>
     </td>
     <td class="flush-right">
-        Page {PAGENO}
+        Página {PAGENO}
     </td>
     </tr></table>
 </htmlpagefooter>
 
 <!-- Ticket metadata -->
-<h1>Ticket #<?php echo $ticket->getNumber(); ?></h1>
-<table class="meta-data" cellpadding="0" cellspacing="0">
+<h1>Chamado #<?php echo $ticket->getNumber(); ?></h1>
+<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
 <tbody>
 <tr>
-    <th><?php echo __('Status'); ?></th>
-    <td><?php echo $ticket->getStatus(); ?></td>
-    <th><?php echo __('Name'); ?></th>
-    <td><?php echo $ticket->getOwner()->getName(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Priority'); ?></th>
-    <td><?php echo $ticket->getPriority(); ?></td>
-    <th><?php echo __('Email'); ?></th>
-    <td><?php echo $ticket->getEmail(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Department'); ?></th>
+    <th align="left" width="30%"><?php echo __('Department'); ?><?php echo ' :'; ?></th>
     <td><?php echo $ticket->getDept(); ?></td>
-    <th><?php echo __('Phone'); ?></th>
-    <td><?php echo $ticket->getPhoneNumber(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Create Date'); ?></th>
-    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
-    <th><?php echo __('Source'); ?></th>
-    <td><?php echo $ticket->getSource(); ?></td>
-</tr>
-</tbody>
-<tbody>
-    <tr><td colspan="4" class="spacer">&nbsp;</td></tr>
-</tbody>
-<tbody>
-<tr>
-    <th><?php echo __('Assigned To'); ?></th>
-    <td><?php echo $ticket->getAssigned(); ?></td>
-    <th><?php echo __('Help Topic'); ?></th>
-    <td><?php echo $ticket->getHelpTopic(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('SLA Plan'); ?></th>
-    <td><?php if ($sla = $ticket->getSLA()) echo $sla->getName(); ?></td>
-    <th><?php echo __('Last Response'); ?></th>
-    <td><?php echo Format::datetime($ticket->getLastResponseDate()); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Due Date'); ?></th>
-    <td><?php echo Format::datetime($ticket->getEstDueDate()); ?></td>
-    <th><?php echo __('Last Message'); ?></th>
-    <td><?php echo Format::datetime($ticket->getLastMessageDate()); ?></td>
 </tr>
 </tbody>
 </table>
@@ -190,17 +145,12 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
     if (count($answers) == 0)
         continue;
     ?>
-        <table class="custom-data" cellspacing="0" cellpadding="4" width="100%" border="0">
-        <tr><td colspan="2" class="headline flush-left"><?php echo $form->getTitle(); ?></th></tr>
+        <table class="meta-data" cellspacing="0" cellpadding="0" width="100%" border="0">
         <?php foreach($answers as $a) {
             if (!($v = $a->display())) continue; ?>
             <tr>
-                <th><?php
-    echo $a->getField()->get('label');
-                ?>:</th>
-                <td><?php
-    echo $v;
-                ?></td>
+                <th align="left" width="30%"><?php echo $a->getField()->get('label');?>:</th>
+                <td><?php echo $v;?></td>
             </tr>
             <?php } ?>
         </table>
@@ -208,8 +158,38 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
     $idx++;
 } ?>
 
+<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
+<tbody>
+<tr>
+    <th align="left"><?php echo __('Name'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getOwner()->getName(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Email'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getEmail(); ?></td>
+</tr>
+<tr>
+    <th align="left" width="30%"><?php echo __('Phone'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getPhoneNumber(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Source'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getSource(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Create Date'); ?><?php echo ' :'; ?></th>
+    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Help Topic'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getHelpTopic(); ?></td>
+</tr>
+</tbody>
+</table>
+
+
+
 <!-- Ticket Thread -->
-<h2><?php echo $ticket->getSubject(); ?></h2>
 <div id="ticket_thread">
 <?php
 $types = array('M', 'R');
@@ -250,5 +230,27 @@ if ($thread = $ticket->getThreadEntries($types)) {
 <?php }
 } ?>
 </div>
+
+<p ><?php echo "Resolução: ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"; ?></p>
+</br>
+<h3><?php echo "TERMO DE RESPONSABILIDADE"; ?></h3>
+<p ><?php echo "Caso seja solicitada a formatação do equipamento. o solicitante fica ciente que este procedimento apaga definitivamente todos os dados do computador. Por esse termo, assume que foi verificado backup, portanto, responsabiliza-se por toda e qualquer informação removida, incluindo informações de outros perfis do computador."; ?></p>
+</br>
+
+<table border="10" width="100%">
+<tr>
+<td><p><?php echo "____________________________________"; ?></p></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><p align="right"><?php echo "_____________________________________ "; ?></p></td>
+</tr>
+<tr>
+<td><p><?php echo "Assinatura do Solicitante "; ?></p></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><p align="right"><?php echo "Assinatura do Responsável Técnico"; ?></p></td>
+</tr>
+</table>
+</br>
+</br>
+<p align="center"><?php echo "Paulista, ___________ de _________________________ de 2017"; ?></p>
 </body>
 </html>

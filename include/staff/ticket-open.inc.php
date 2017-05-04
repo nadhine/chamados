@@ -208,25 +208,7 @@ if ($_POST)
             </td>
         </tr>
 
-         <tr>
-            <td width="160">
-                <?php echo __('SLA Plan');?>:
-            </td>
-            <td>
-                <select name="slaId">
-                    <option value="0" selected="selected" >&mdash; <?php echo __('System Default');?> &mdash;</option>
-                    <?php
-                    if($slas=SLA::getSLAs()) {
-                        foreach($slas as $id =>$name) {
-                            echo sprintf('<option value="%d" %s>%s</option>',
-                                    $id, ($info['slaId']==$id)?'selected="selected"':'',$name);
-                        }
-                    }
-                    ?>
-                </select>
-                &nbsp;<font class="error">&nbsp;<?php echo $errors['slaId']; ?></font>
-            </td>
-         </tr>
+
 
          <tr>
             <td width="160">
@@ -405,8 +387,6 @@ print $response_form->getField('attachments')->render();
     </tbody>
 </table>
 <p style="text-align:center;">
-    <input type="submit" name="submit" value="<?php echo _P('action-button', 'Open');?>">
-    <input type="reset"  name="reset"  value="<?php echo __('Reset');?>">
     <input type="button" name="cancel" value="<?php echo __('Cancel');?>" onclick="javascript:
         $('.richtext').each(function() {
             var redactor = $(this).data('redactor');
@@ -415,6 +395,7 @@ print $response_form->getField('attachments')->render();
         });
         window.location.href='tickets.php';
     ">
+    <input type="submit" name="submit" value="<?php echo _P('action-button', 'Open');?>">
 </p>
 </form>
 <script type="text/javascript">

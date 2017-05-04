@@ -34,7 +34,7 @@
     background:#C3D9FF;
 }
 #ticket_thread .response .header {
-    background:#DDD;
+    background:#FFE0B3;
 }
 #ticket_thread .note .header {
     background:#FFE;
@@ -57,7 +57,6 @@ table.custom-data th {
 table.custom-data th,
 table.meta-data th {
     text-align: right;
-    background-color: #ddd;
     padding: 3px 8px;
 }
 table.meta-data td {
@@ -108,50 +107,29 @@ div.hr {
     <div class="hr">&nbsp;</div>
     <table><tr>
         <td class="flush-left"><?php echo (string) $ost->company; ?></td>
-        <td class="flush-right"><?php echo Format::daydatetime(Misc::gmtime()); ?></td>
     </tr></table>
 </htmlpageheader>
 
 <htmlpagefooter name="def" style="display:none">
     <div class="hr">&nbsp;</div>
     <table width="100%"><tr><td class="flush-left">
-        Ticket #<?php echo $ticket->getNumber(); ?> printed by
-        <?php echo $thisclient->getName()->getFirst(); ?> on
+        Chamado #<?php echo $ticket->getNumber(); ?> impresso por
+        <?php echo $thisstaff->getUserName(); ?> em
         <?php echo Format::daydatetime(Misc::gmtime()); ?>
     </td>
     <td class="flush-right">
-        Page {PAGENO}
+        Página {PAGENO}
     </td>
     </tr></table>
 </htmlpagefooter>
 
 <!-- Ticket metadata -->
-<h1>Ticket #<?php echo $ticket->getNumber(); ?></h1>
-<table class="meta-data" cellpadding="0" cellspacing="0">
+<h1>Chamado #<?php echo $ticket->getNumber(); ?></h1>
+<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
 <tbody>
 <tr>
-    <th><?php echo __('Status'); ?></th>
-    <td><?php echo $ticket->getStatus(); ?></td>
-    <th><?php echo __('Name'); ?></th>
-    <td><?php echo $ticket->getOwner()->getName(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Priority'); ?></th>
-    <td><?php echo $ticket->getPriority(); ?></td>
-    <th><?php echo __('Email'); ?></th>
-    <td><?php echo $ticket->getEmail(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Department'); ?></th>
+    <th align="left" width="30%"><?php echo __('Department'); ?><?php echo ' :'; ?></th>
     <td><?php echo $ticket->getDept(); ?></td>
-    <th><?php echo __('Phone'); ?></th>
-    <td><?php echo $ticket->getPhoneNumber(); ?></td>
-</tr>
-<tr>
-    <th><?php echo __('Create Date'); ?></th>
-    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
-    <th><?php echo __('Source'); ?></th>
-    <td><?php echo $ticket->getSource(); ?></td>
 </tr>
 </tbody>
 </table>
@@ -162,23 +140,17 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
     // Skip core fields shown earlier in the ticket view
     $answers = $form->getAnswers()->exclude(Q::any(array(
         'field__flags__hasbit' => DynamicFormField::FLAG_EXT_STORED,
-        Q::not(array('field__flags__hasbit' => DynamicFormField::FLAG_CLIENT_VIEW)),
-        'field__name__in' => array('subject', 'priority'),
+        'field__name__in' => array('subject', 'priority')
     )));
     if (count($answers) == 0)
         continue;
     ?>
-        <table class="custom-data" cellspacing="0" cellpadding="4" width="100%" border="0">
-        <tr><td colspan="2" class="headline flush-left"><?php echo $form->getTitle(); ?></th></tr>
+        <table class="meta-data" cellspacing="0" cellpadding="0" width="100%" border="0">
         <?php foreach($answers as $a) {
             if (!($v = $a->display())) continue; ?>
             <tr>
-                <th><?php
-    echo $a->getField()->get('label');
-                ?>:</th>
-                <td><?php
-    echo $v;
-                ?></td>
+                <th align="left" width="30%"><?php echo $a->getField()->get('label');?>:</th>
+                <td><?php echo $v;?></td>
             </tr>
             <?php } ?>
         </table>
@@ -186,17 +158,49 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
     $idx++;
 } ?>
 
+<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
+<tbody>
+<tr>
+    <th align="left"><?php echo __('Name'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getOwner()->getName(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Email'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getEmail(); ?></td>
+</tr>
+<tr>
+    <th align="left" width="30%"><?php echo __('Phone'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getPhoneNumber(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Source'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getSource(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Create Date'); ?><?php echo ' :'; ?></th>
+    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Help Topic'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getHelpTopic(); ?></td>
+</tr>
+</tbody>
+</table>
+
+
+
 <!-- Ticket Thread -->
-<h2><?php echo $ticket->getSubject(); ?></h2>
 <div id="ticket_thread">
 <?php
 $types = array('M', 'R');
+if ($this->includenotes)
+    $types[] = 'N';
 
 if ($thread = $ticket->getThreadEntries($types)) {
     $threadTypes=array('M'=>'message','R'=>'response', 'N'=>'note');
     foreach ($thread as $entry) { ?>
         <div class="thread-entry <?php echo $threadTypes[$entry->type]; ?>">
-            <table class="header"><tr><td>
+            <table class="header" style="width:100%"><tr><td>
                     <span><?php
                         echo Format::datetime($entry->created);?></span>
                     <span style="padding:0 1em" class="faded title"><?php
@@ -209,7 +213,6 @@ if ($thread = $ticket->getThreadEntries($types)) {
             </tr></table>
             <div class="thread-body">
                 <div><?php echo $entry->getBody()->display('pdf'); ?></div>
-            </div>
             <?php
             if ($entry->has_attachments
                     && ($files = $entry->attachments)) { ?>
@@ -222,9 +225,11 @@ if ($thread = $ticket->getThreadEntries($types)) {
 <?php           } ?>
                 </div>
 <?php       } ?>
+            </div>
         </div>
 <?php }
 } ?>
 </div>
+
 </body>
 </html>
