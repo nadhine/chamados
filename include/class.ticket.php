@@ -141,17 +141,22 @@ class TicketModel extends VerySimpleModel {
 
     // Ticket Sources
     static protected $sources =  array(
-            'Phone' =>
-            /* @trans */ 'Phone',
+            'Telefone' =>
+            /* @trans */ 'Telefone',
             'Email' =>
             /* @trans */ 'Email',
-
             'Web' =>
             /* @trans */ 'Web',
             'API' =>
             /* @trans */ 'API',
-            'Other' =>
-            /* @trans */ 'Other',
+            'Outros' =>
+            /* @trans */ 'Outros',
+            'CI' =>
+            /* @trans */ 'CI',
+            'Oficio' =>
+            /* @trans */ 'Oficio',
+            'Pessoalmente' =>
+            /* @trans */ 'Pessoalmente',
             );
 
     function getId() {
