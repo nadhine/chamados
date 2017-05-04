@@ -2,26 +2,24 @@
 # Canned response templates
 #
 ---
-- isenabled: 1
-  title: What is osTicket (sample)?
-  response: |
-    osTicket is a widely-used open source support ticket system, an
-    attractive alternative to higher-cost and complex customer support
-    systems - simple, lightweight, reliable, open source, web-based and easy
-    to setup and use.
-  notes: |
-
+- 
+  isenabled: 1
+  title: O que é o Sistema de Chamados TI Paulista (exemplo)?
+  response: Sistema de Chamados TI Paulista é baseado no sistema OsTicket, um sistema de chamados de código aberto amplamente utilizado, uma alternativa atraente aos caros e complexos sistemas de suporte. Simples, leve, confiável, aberto, baseado na web, fácil de configurar e usar.
+  notes: ""
   attachments:
-    - name: osTicket.txt
+    - 
+      name: osTicket.txt
       type: text/plain
-      data: Canned Attachments Rock!
-
-- isenabled: 1
-  title: Sample (with variables)
+      data: Anexos prontos são o máximo!
+- 
+  isenabled: 1
+  title: Exemplo (com variáveis)
   response: |
-    Hi %{ticket.name.first},
+    Olá %{ticket.name.first},
     <br>
     <br>
-    Your ticket #%{ticket.number} created on %{ticket.create_date} is in
-    %{ticket.dept.name} department.
+    Seu chamado #%{ticket.number} criado em %{ticket.create_date} está com o departamento: 
+    %{ticket.dept.name} .
   notes: |
+    
