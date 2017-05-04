@@ -29,7 +29,7 @@
     - 
       type: phone
       name: phone
-      label: Número de telefone
+      label: Telefone
       required: false
       sort: 3
     - 
@@ -48,7 +48,7 @@
   title: Detalhes do chamado
   instructions: Por favor, descreva seu problema
   notes: |
-    Este formulário será anexado a cada Ticket, independentemente da sua origem. Ao adicionar campos ao formulário, os mesmos ficarão disponíveis em todos os Tickets e ficarão também disponíveis na pesquisa avançada e nos filtros.
+    Este formulário será anexado a cada Chamado, independentemente da sua origem. Ao adicionar campos ao formulário, os mesmos ficarão disponíveis em todos os Chamados e ficarão também disponíveis na pesquisa avançada e nos filtros.
   deletable: false
   fields:
     - 
@@ -67,7 +67,7 @@
       type: thread
       name: message
       label: Detalhes do problema
-      hint: Detalhes sobre as razões que justificam a abertura do ticket.
+      hint: Detalhes sobre as razões que justificam a abertura do chamado.
       required: true
       edit_mask: 15
       sort: 2
@@ -107,7 +107,7 @@
     - 
       type: phone
       name: phone
-      label: Número de telefone
+      label: Telefone
       required: false
       sort: 3
       configuration:

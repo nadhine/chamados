@@ -1,28 +1,28 @@
 ---
 new_ticket_help_topic:
-  title: Novo Tópico de Ajuda do Ticket
+  title: Novo Tópico do chamado
   content: >
-    Escolha um <span class="doc-desc-title"> tópico da ajuda</span> para ser automaticamente associado com tickets criados através deste endereço de E-mail. <br/> <br/> Formulários associados com o tópico da ajuda serão adicionados para o ticket, mas não terá quaisquer dados.
+    Escolha um <span class="doc-desc-title"> tópico </span> para ser automaticamente associado aos chamados criados através deste endereço de E-mail. <br/> <br/> Formulários associados com o tópico serão adicionados para o chamado, mas não terá quaisquer dados.
   links:
     - 
-      title: Gerenciar tópicos da ajuda
+      title: Gerenciar tópicos 
       href: /scp/helptopics.php
 new_ticket_priority:
-  title: Prioridade de Novo Ticket
+  title: Prioridade de Novo Chamado
   content: >
-    Escolha a <span class="doc-desc-title"> prioridade</span> para novos tickets criados via ths endereço de E-mail.
+    Escolha a <span class="doc-desc-title"> prioridade</span> para novos chamados criados via ths endereço de E-mail.
 new_ticket_department:
-  title: Novo Departamento de Ticket
+  title: Novo Departamento de Chamado
   content: >
-    Escolha o <span class="doc-desc-title"> Departamento</span> para que novos tickets criados através deste endereço de E-mail serão encaminhados.
+    Escolha o <span class="doc-desc-title"> Departamento</span> para que novos chamados criados através deste endereço de E-mail serão encaminhados.
   links:
     - 
       title: Gerenciar departamentos
       href: /scp/departments.php
 auto_response:
-  title: Reposta automática de Novo Ticket
+  title: Reposta automática de Novo Chamado
   content: >
-    Você pode desativar a Auto-resposta enviada para o usuário quando um novo ticket é criado através deste endereço de E-mail.
+    Você pode desativar a Auto-resposta enviada para o usuário quando um novo chamado é criado através deste endereço de E-mail.
 username:
   title: Nome de usuário
   content: >
@@ -38,7 +38,7 @@ login_information:
 mail_account:
   title: Busca de E-mail
   content: >
-    "Procurar emails de uma caixa de correio IMAP ou POP remotamente e converte-los para Tickets de seu Atendimento."
+    "Procurar emails de uma caixa de correio IMAP ou POP remotamente e converte-los para Chamados de seu Atendimento."
   links:
     - 
       title: Gerencie <span class="doc-desc-title">Votação de Emails</span> &amp; <span class="doc-desc-title">AutoCron</span> settings.

@@ -1,7 +1,7 @@
 ---
 - 
-  name: osTicket
+  name: Diretoria de TI Paulista
   fields:
-    "address:| 420 Desoto Street Alexandria, LA 71301 phone":
-      (318) 290-3674 website:
-        "http://osticket.com notes": ""
+    "Rua Nova Mangueira, 05 - Centro Paulista":
+      (81) 34372327 site:
+        "sistemadechamados.com/": ""

@@ -12,7 +12,7 @@ rules_matching_criteria:
   content: >
     Escolha como aumentar a atuação do <span class="doc-desc-title"> Filtro de Tikets</span> para  Se quiser que o <span class="doc-desc-title"> Filtro de Tikets</span> para coincidir com qualquer uma das regras e depois parar, escolha <span class="doc-desc-opt"> coincidir com qualquer um</span>. Se quiser que <em><strong>todas as regras</strong></em> do <span class="doc-desc-title"> Filtro de Tiket</span> sejam correspondidas, escolha <span class="doc-desc-opt"> Para todas as ações</span>.
 reject_ticket:
-  title: Rejeitar o ticket
+  title: Rejeitar o Chamado
   content: >
     Se essa opção estiver habilitada, processamento adicional é interrompida e todas as outras escolhas de ação abaixo serão ignoradas na atuação.
 reply_to_email:
@@ -20,7 +20,7 @@ reply_to_email:
   content: >
     Habilite isso, se você quer seu HelpDesk apareça no cabeçalho  <span class="doc-desc-title"> encaminhar para</span> do aplicativo de e-mail do usuário. Este campo só é relevante se o <span class="doc-desc-title"> Canal</span> acima inclui <span class="doc-desc-opt"> E-mail</span>.
 ticket_auto_response:
-  title: Desabilitar a Resposta Automática aos Tickets
+  title: Desabilitar a Resposta Automática aos Chamados
   content: >
     <em>Nota: isto irá substituir qualquer <span class="doc-desc-title"> Departamento</span> ou <span class="doc-desc-title"> configurações de Auto-resposta</span>.</em>
 canned_response:
@@ -35,7 +35,7 @@ canned_response:
       title: Gerenciar conjuntos de modelo
       href: /scp/templates.php
     - 
-      title: Novo modelo de resposta automática de tickets
+      title: Novo modelo de resposta automática de Chamados
       href: /scp/templates.php?id=2&a=manage
 department:
   title: Departamento
@@ -48,7 +48,7 @@ department:
 priority:
   title: Prioridade
   content: >
-    Escolher o nível de <span class="doc-desc-title"> prioridade</span> que você quer ser aplicado para as ações do <span class="doc-desc-title"> Filtro de Tikets</span>. < br / > < br / > <em>Nota: isto irá substituir configurações de <span class="doc-desc-title"> Departamento</span> ou o <span class="doc-desc-title"> tópico da ajuda</span>.</em>
+    Escolher o nível de <span class="doc-desc-title"> prioridade</span> que você quer ser aplicado para as ações do <span class="doc-desc-title"> Filtro de Tikets</span>. < br / > < br / > <em>Nota: isto irá substituir configurações de <span class="doc-desc-title"> Departamento</span> ou o <span class="doc-desc-title"> tópico </span>.</em>
 sla_plan:
   title: Plano de SLA
   content: >
@@ -60,7 +60,7 @@ sla_plan:
 auto_assign:
   title: Auto-atribuir
   content: >
-    Escolha um agente ou uma equipe que você desejar, que as ações do class="doc-desc-title"> Filtro de Ticket </ span>seja atribuído.
+    Escolha um agente ou uma equipe que você desejar, que as ações do class="doc-desc-title"> Filtro de Chamados </ span>seja atribuído.
   links:
     - 
       title: Gerenciar agentes
@@ -69,12 +69,12 @@ auto_assign:
       title: Gerenciar equipes
       href: /scp/teams.php
 help_topic:
-  title: Tópico de ajuda
+  title: Tópico
   content: >
-    Escolha o <span class="doc-desc-title"> tópico de ajuda</span> você queira que seja aplicado para a atuação do <span class="doc-desc-title"> Filtro de Tiket</span>.
+    Escolha o <span class="doc-desc-title"> tópico </span> você queira que seja aplicado para a atuação do <span class="doc-desc-title"> Filtro de Tiket</span>.
   links:
     - 
-      title: Gerenciar tópicos da ajuda
+      title: Gerenciar tópicos 
       href: /scp/helptopics.php
 admin_notes:
   title: Notas de administrador

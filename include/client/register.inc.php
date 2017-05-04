@@ -92,9 +92,9 @@ $info = Format::htmlchars(($errors && $_POST)?$_POST:$info);
 </table>
 <hr>
 <p style="text-align: center;">
-    <input type="submit" value="Register"/>
     <input type="button" value="Cancel" onclick="javascript:
         window.location.href='index.php';"/>
+    <input type="submit" value="Register"/>
 </p>
 </form>
 <?php if (!isset($info['timezone'])) { ?>
