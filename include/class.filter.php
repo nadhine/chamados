@@ -884,7 +884,7 @@ class TicketFilter {
      *
      */
     function origin2target($origin) {
-        $sources=array('web' => 'Web', 'email' => 'Email', 'phone' => 'Web', 'staff' => 'Web', 'api' => 'API');
+        $sources=array('web' => 'Web', 'email' => 'Email', 'phone' => 'Web', 'staff' => 'Web', 'api' => 'API', 'CI' => 'CI', 'Oficio' => 'Oficio', 'Pessoalmente' => 'Pessoalmente');
 
         return $sources[strtolower($origin)];
     }

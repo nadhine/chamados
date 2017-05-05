@@ -1,4 +1,9 @@
 <?php
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate",true);
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 $title=($cfg && is_object($cfg) && $cfg->getTitle())
     ? $cfg->getTitle() : 'osTicket :: '.__('Support Ticket System');
 $signin_url = ROOT_PATH . "login.php"
