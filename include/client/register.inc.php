@@ -30,24 +30,6 @@ $info = Format::htmlchars(($errors && $_POST)?$_POST:$info);
     $cf->render(false, false, array('mode' => 'create'));
 ?>
 <tr>
-    <td colspan="2">
-        <div><hr><h3><?php echo __('Preferences'); ?></h3>
-        </div>
-    </td>
-</tr>
-    <tr>
-        <td width="180">
-            <?php echo __('Time Zone');?>:
-        </td>
-        <td>
-            <?php
-            $TZ_NAME = 'timezone';
-            $TZ_TIMEZONE = $info['timezone'];
-            include INCLUDE_DIR.'staff/templates/timezone.tmpl.php'; ?>
-            <div class="error"><?php echo $errors['timezone']; ?></div>
-        </td>
-    </tr>
-<tr>
     <td colspan=2">
         <div><hr><h3><?php echo __('Access Credentials'); ?></h3></div>
     </td>
