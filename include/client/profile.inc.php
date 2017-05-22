@@ -92,9 +92,8 @@ $selected = ($info['lang'] == $l['code']) ? 'selected="selected"' : ''; ?>
 </table>
 <hr>
 <p style="text-align: center;">
-    <input type="submit" value="Update"/>
-    <input type="reset" value="Reset"/>
-    <input type="button" value="Cancel" onclick="javascript:
+    <input type="button" value="Cancelar" onclick="javascript:
         window.location.href='index.php';"/>
+    <input type="submit" value="Atualizar"/>
 </p>
 </form>
