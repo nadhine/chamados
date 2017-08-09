@@ -231,22 +231,22 @@ if ($thread = $ticket->getThreadEntries($types)) {
 } ?>
 </div>
 
-<p ><?php echo "Resolução: ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"; ?></p>
+<p ><?php echo "Resolução: ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"; ?></p>
 </br>
 <h3><?php echo "TERMO DE RESPONSABILIDADE"; ?></h3>
-<p ><?php echo "Caso seja solicitada a formatação do equipamento. o solicitante fica ciente que este procedimento apaga definitivamente todos os dados do computador. Por esse termo, assume que foi verificado backup, portanto, responsabiliza-se por toda e qualquer informação removida, incluindo informações de outros perfis do computador."; ?></p>
+<p align="justify"><?php echo "Caso seja solicitada a formatação do equipamento. o solicitante fica ciente que este procedimento apaga definitivamente todos os dados do computador. Por esse termo, assume que foi verificado backup, portanto, responsabiliza-se por toda e qualquer informação removida, incluindo informações de outros perfis do computador."; ?></p>
 </br>
 
 <table border="10" width="100%">
-<tr>
-<td><p><?php echo "____________________________________"; ?></p></td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><p align="right"><?php echo "_____________________________________ "; ?></p></td>
+<tr width="50%">
+<td><p align="center"><?php echo "____________________________________"; ?></p></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><p align="center"><?php echo "_________________________________________ "; ?></p></td>
 </tr>
-<tr>
-<td><p><?php echo "Assinatura do Solicitante "; ?></p></td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><p align="right"><?php echo "Assinatura do Responsável Técnico"; ?></p></td>
+<tr width="50%">
+<td><p align="center"><?php echo "Assinatura do Solicitante "; ?></p></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><p align="center"><?php echo "Assinatura do Responsável Técnico"; ?></p></td>
 </tr>
 </table>
 </br>
