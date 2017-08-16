@@ -219,10 +219,10 @@ if ($_POST)
                 &nbsp;&nbsp;
                 <?php
                 $min=$hr=null;
-                if($info['time'])
-                    list($hr, $min)=explode(':', $info['time']);
+                if($info['datetime'])
+                    list($hr, $min)=explode(':', $info['datetime']);
 
-                echo Misc::timeDropdown($hr, $min, 'time');
+                echo Misc::timeDropdown($hr, $min, 'datetime');
                 ?>
                 &nbsp;<font class="error">&nbsp;<?php echo $errors['duedate']; ?> &nbsp; <?php echo $errors['time']; ?></font>
                 <em><?php echo __('Time is based on your time zone');?> (GMT <?php echo Format::date(false, false, 'ZZZ'); ?>)</em>

@@ -161,16 +161,16 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
 <table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
 <tbody>
 <tr>
+    <th align="left" width="30%"><?php echo __('Setor'); ?><?php echo ' :'; ?></th>
+    <td><?php $lista = $ticket->getOwner()->getFilterData(); ?><?php $setor = print_r(array_shift($lista)); ?></td>
+</tr>
+<tr>
     <th align="left"><?php echo __('Name'); ?><?php echo ' :'; ?></th>
     <td><?php echo $ticket->getOwner()->getName(); ?></td>
 </tr>
 <tr>
     <th align="left"><?php echo __('Email'); ?><?php echo ' :'; ?></th>
     <td><?php echo $ticket->getEmail(); ?></td>
-</tr>
-<tr>
-    <th align="left" width="30%"><?php echo __('Phone'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getPhoneNumber(); ?></td>
 </tr>
 <tr>
     <th align="left"><?php echo __('Source'); ?><?php echo ' :'; ?></th>
@@ -231,21 +231,21 @@ if ($thread = $ticket->getThreadEntries($types)) {
 } ?>
 </div>
 
-<p ><?php echo "Resolução: ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"; ?></p>
+<p ><?php echo "Observação: ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"; ?></p>
 </br>
 <h3><?php echo "TERMO DE RESPONSABILIDADE"; ?></h3>
 <p align="justify"><?php echo "Caso seja solicitada a formatação do equipamento. o solicitante fica ciente que este procedimento apaga definitivamente todos os dados do computador. Por esse termo, assume que foi verificado backup, portanto, responsabiliza-se por toda e qualquer informação removida, incluindo informações de outros perfis do computador."; ?></p>
 </br>
 
 <table border="10" width="100%">
-<tr width="50%">
+<tr>
 <td><p align="center"><?php echo "____________________________________"; ?></p></td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td><p align="center"><?php echo "_________________________________________ "; ?></p></td>
 </tr>
-<tr width="50%">
+<tr>
 <td><p align="center"><?php echo "Assinatura do Solicitante "; ?></p></td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td></td>
 <td><p align="center"><?php echo "Assinatura do Responsável Técnico"; ?></p></td>
 </tr>
 </table>
