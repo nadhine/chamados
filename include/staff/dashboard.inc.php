@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 $report = new OverviewReport($_POST['start'], $_POST['period']);
 $plots = $report->getPlotData();
@@ -98,18 +99,51 @@ foreach ($groups as $g=>$desc) {
         echo '<tr>';
         foreach ($row as $j=>$td) {
             if ($j === 0) { ?>
-                <th class="flush-left"><?php echo Format::htmlchars($td); ?></th>
+                <th class="flush-left">
+                <?php echo Format::htmlchars($td); ?></th>
 <?php       }
             else { ?>
                 <td><?php echo Format::htmlchars($td);
-                if ($td) { // TODO Add head map
-                }
+                    if ($td) { // TODO Add head map
+                    }
                 echo '</td>';
+
             }
         }
         echo '</tr>';
     }
     $first = false; ?>
+    <tr>
+        <td align="left"><b> TOTAL</b></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[1];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[2];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[3];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[4];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[5];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[6];
+        }echo $abertos;?></td>
+        <td><?php $abertos = 0; 
+        foreach ($data['data'] as $key => $value) {
+            $abertos = $abertos + $value[7];
+        }echo $abertos;?></td>
+    </tr>
     </tbody></table>
     <div style="margin-top: 5px"><button type="submit" class="link button" name="export"
         value="<?php echo Format::htmlchars($g); ?>">

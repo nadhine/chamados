@@ -60,6 +60,7 @@ table.meta-data th {
     padding: 3px 8px;
 }
 table.meta-data td {
+    width: 25%;
     padding: 3px 8px;
 }
 .faded {
@@ -128,8 +129,30 @@ div.hr {
 <table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
 <tbody>
 <tr>
-    <th align="left" width="30%"><?php echo __('Department'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getDept(); ?></td>
+    <th align="left" width="20%"><?php echo __('Department'); ?><?php echo ' :'; ?></th>
+    <td width="30%"><?php echo $ticket->getDept(); ?></td>
+    <th align="left" width="20%"><?php echo __('Setor'); ?><?php echo ' :'; ?></th>
+    <td width="30%"><?php $lista = $ticket->getOwner()->getFilterData(); ?><?php $setor = print_r(array_shift($lista)); ?></td>
+</tr>
+</tbody>
+</table>
+<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
+<tbody>
+<tr>
+    <th align="left"><?php echo __('Name'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getOwner()->getName(); ?></td>
+    <th align="left" width="22%"><?php echo __('Create Date'); ?><?php echo ' :'; ?></th>
+    <td width="28%"><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Email'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getEmail(); ?></td>
+    <th align="left"><?php echo __('Source'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getSource(); ?></td>
+</tr>
+<tr>
+    <th align="left"><?php echo __('Help Topic'); ?><?php echo ' :'; ?></th>
+    <td><?php echo $ticket->getHelpTopic(); ?></td>
 </tr>
 </tbody>
 </table>
@@ -149,45 +172,16 @@ foreach (DynamicFormEntry::forTicket($ticket->getId()) as $form) {
         <?php foreach($answers as $a) {
             if (!($v = $a->display())) continue; ?>
             <tr>
-                <th align="left" width="30%"><?php echo $a->getField()->get('label');?>:</th>
-                <td><?php echo $v;?></td>
+                <th align="left" width="21%"><?php echo $a->getField()->get('label');?>:</th>
+                <td width="30%"><?php echo $v;?></td>
+                <th align="left" width="20%"></th>
+                <td width="30%"></td>
             </tr>
             <?php } ?>
         </table>
     <?php
     $idx++;
 } ?>
-
-<table class="meta-data" cellpadding="0" cellspacing="0"  width="100%" border="0">
-<tbody>
-<tr>
-    <th align="left" width="30%"><?php echo __('Setor'); ?><?php echo ' :'; ?></th>
-    <td><?php $lista = $ticket->getOwner()->getFilterData(); ?><?php $setor = print_r(array_shift($lista)); ?></td>
-</tr>
-<tr>
-    <th align="left"><?php echo __('Name'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getOwner()->getName(); ?></td>
-</tr>
-<tr>
-    <th align="left"><?php echo __('Email'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getEmail(); ?></td>
-</tr>
-<tr>
-    <th align="left"><?php echo __('Source'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getSource(); ?></td>
-</tr>
-<tr>
-    <th align="left"><?php echo __('Create Date'); ?><?php echo ' :'; ?></th>
-    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
-</tr>
-<tr>
-    <th align="left"><?php echo __('Help Topic'); ?><?php echo ' :'; ?></th>
-    <td><?php echo $ticket->getHelpTopic(); ?></td>
-</tr>
-</tbody>
-</table>
-
-
 
 <!-- Ticket Thread -->
 <div id="ticket_thread">
